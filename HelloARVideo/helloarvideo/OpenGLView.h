@@ -8,15 +8,22 @@
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+
+/***********/
 #import <SceneKit/SceneKit.h>
+/***********/
 
 @interface OpenGLView : UIView
 
 @property(nonatomic, strong) CAEAGLLayer * eaglLayer;
 @property(nonatomic, strong) EAGLContext *context;
 @property(nonatomic) GLuint colorRenderBuffer;
+
+/***********/
 @property(nonatomic) SCNMatrix4 cameraview4Matrix;
 @property(nonatomic) SCNMatrix4 projection4Matrix;
+/***********/
+
 - (void)start;
 - (void)stop;
 - (void)resize:(CGRect)frame orientation:(UIInterfaceOrientation)orientation;

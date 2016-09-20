@@ -10,6 +10,7 @@
 		6C14EE4B1D902C0C0046CD01 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */; };
 		6CFCD6E81D91797700C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E71D91797700C07C39 /* easyar.framework */; };
 		6CFCD6EA1D91799800C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E91D91799800C07C39 /* easyar.framework */; };
+		6CFFC9351D91834000F3FA35 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CFFC9341D91834000F3FA35 /* art.scnassets */; };
 		F1A7AA2F1C06CACF0060ADF6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A7AA2D1C06CACF0060ADF6 /* LaunchScreen.xib */; };
 		F1D13BAC1C040394008F72E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BAB1C040394008F72E2 /* main.m */; };
 		F1D13BB51C040395008F72E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D13BB31C040395008F72E2 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		6CFCD6E71D91797700C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
 		6CFCD6E91D91799800C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
+		6CFFC9341D91834000F3FA35 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		F1A7AA2E1C06CACF0060ADF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F1D13BA71C040394008F72E2 /* helloarvideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloarvideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D13BAB1C040394008F72E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D13C361C043716008F72E2 /* assets */,
+				6CFFC9341D91834000F3FA35 /* art.scnassets */,
 				F1D13BD21C040841008F72E2 /* AppDelegate.h */,
 				F1D13BD31C040841008F72E2 /* AppDelegate.mm */,
 				F1D13BD41C040841008F72E2 /* ar.cc */,
@@ -238,6 +241,7 @@
 				F1D13C341C04370B008F72E2 /* transparentvideo.mp4 in Resources */,
 				F1D13C321C04370B008F72E2 /* namecard.jpg in Resources */,
 				F1D13C331C04370B008F72E2 /* targets.json in Resources */,
+				6CFFC9351D91834000F3FA35 /* art.scnassets in Resources */,
 				F1A7AA2F1C06CACF0060ADF6 /* LaunchScreen.xib in Resources */,
 				F1D13C311C04370B008F72E2 /* idback.jpg in Resources */,
 			);

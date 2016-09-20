@@ -34,8 +34,12 @@ public:
     virtual void resizeGL(int width, int height);
     virtual void render();
     virtual bool clear();
+    
+    /***********/
     Matrix44F cameraview4Matrix;
     Matrix44F projection4Matrix;
+    /***********/
+    
 private:
     Vec2I view_size;
     VideoRenderer* renderer[3];
@@ -144,9 +148,12 @@ void HelloARVideo::render()
         }
         Matrix44F projectionMatrix = getProjectionGL(camera_.cameraCalibration(), 0.2f, 500.f);
         Matrix44F cameraview = getPoseGL(frame.targets()[0].pose());
-        cameraview4Matrix = cameraview;
         
+        /***********/
+        cameraview4Matrix = cameraview;
         projection4Matrix = projectionMatrix;
+        /***********/
+        
         ImageTarget target = frame.targets()[0].target().cast_dynamic<ImageTarget>();
         if(tracked_target) {
             video->update();
@@ -243,6 +250,8 @@ EasyAR::samples::HelloARVideo ar;
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
 }
+
+/***********/
 - (void)getMatrix {
     
     SCNMatrix4 m = SCNMatrix4Identity;
@@ -289,6 +298,8 @@ EasyAR::samples::HelloARVideo ar;
     m.m44 = ar.projection4Matrix.data[15];
     self.projection4Matrix = n;
 }
+/***********/
+
 - (void)start{
     ar.initCamera();
     ar.loadAllFromJsonFile("targets.json");
@@ -309,7 +320,11 @@ EasyAR::samples::HelloARVideo ar;
     if (!((AppDelegate*)[[UIApplication sharedApplication]delegate]).active)
         return;
     ar.render();
+    
+    /***********/
     [self getMatrix];
+    /***********/
+    
     (void)displayLink;
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
