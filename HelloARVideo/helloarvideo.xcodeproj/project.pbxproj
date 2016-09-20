@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C14EE4B1D902C0C0046CD01 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */; };
+		6CFCD6E81D91797700C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E71D91797700C07C39 /* easyar.framework */; };
+		6CFCD6EA1D91799800C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E91D91799800C07C39 /* easyar.framework */; };
+		F1A7AA2F1C06CACF0060ADF6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A7AA2D1C06CACF0060ADF6 /* LaunchScreen.xib */; };
+		F1D13BAC1C040394008F72E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BAB1C040394008F72E2 /* main.m */; };
+		F1D13BB51C040395008F72E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D13BB31C040395008F72E2 /* Main.storyboard */; };
+		F1D13BB71C040395008F72E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D13BB61C040395008F72E2 /* Assets.xcassets */; };
+		F1D13BDD1C040841008F72E2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BD31C040841008F72E2 /* AppDelegate.mm */; };
+		F1D13BDE1C040841008F72E2 /* ar.cc in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BD41C040841008F72E2 /* ar.cc */; };
+		F1D13BE01C040841008F72E2 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BD81C040841008F72E2 /* OpenGLView.mm */; };
+		F1D13BE11C040841008F72E2 /* renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BD91C040841008F72E2 /* renderer.cc */; };
+		F1D13BE21C040841008F72E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D13BDC1C040841008F72E2 /* ViewController.m */; };
+		F1D13C0D1C041F55008F72E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C0C1C041F55008F72E2 /* UIKit.framework */; };
+		F1D13C0F1C041F5E008F72E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C0E1C041F5E008F72E2 /* QuartzCore.framework */; };
+		F1D13C111C041F63008F72E2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C101C041F63008F72E2 /* OpenGLES.framework */; };
+		F1D13C131C041F6E008F72E2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C121C041F6E008F72E2 /* CoreVideo.framework */; };
+		F1D13C171C042657008F72E2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C161C042657008F72E2 /* CoreMedia.framework */; };
+		F1D13C181C04265F008F72E2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C141C041F74008F72E2 /* CoreImage.framework */; };
+		F1D13C1A1C04266A008F72E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C191C04266A008F72E2 /* CoreGraphics.framework */; };
+		F1D13C1C1C042672008F72E2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D13C1B1C042672008F72E2 /* AVFoundation.framework */; };
+		F1D13C301C04370B008F72E2 /* argame00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2A1C04370B008F72E2 /* argame00.jpg */; };
+		F1D13C311C04370B008F72E2 /* idback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2B1C04370B008F72E2 /* idback.jpg */; };
+		F1D13C321C04370B008F72E2 /* namecard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2C1C04370B008F72E2 /* namecard.jpg */; };
+		F1D13C331C04370B008F72E2 /* targets.json in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2D1C04370B008F72E2 /* targets.json */; };
+		F1D13C341C04370B008F72E2 /* transparentvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2E1C04370B008F72E2 /* transparentvideo.mp4 */; };
+		F1D13C351C04370B008F72E2 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F1D13C2F1C04370B008F72E2 /* video.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		6CFCD6E71D91797700C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
+		6CFCD6E91D91799800C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
+		F1A7AA2E1C06CACF0060ADF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F1D13BA71C040394008F72E2 /* helloarvideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloarvideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1D13BAB1C040394008F72E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F1D13BB41C040395008F72E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1D13BB61C040395008F72E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1D13BBB1C040395008F72E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D13BD21C040841008F72E2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F1D13BD31C040841008F72E2 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		F1D13BD41C040841008F72E2 /* ar.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ar.cc; sourceTree = "<group>"; };
+		F1D13BD51C040841008F72E2 /* ar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ar.hpp; sourceTree = "<group>"; };
+		F1D13BD71C040841008F72E2 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		F1D13BD81C040841008F72E2 /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
+		F1D13BD91C040841008F72E2 /* renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderer.cc; sourceTree = "<group>"; };
+		F1D13BDA1C040841008F72E2 /* renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = renderer.hpp; sourceTree = "<group>"; };
+		F1D13BDB1C040841008F72E2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F1D13BDC1C040841008F72E2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F1D13C0C1C041F55008F72E2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F1D13C0E1C041F5E008F72E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F1D13C101C041F63008F72E2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F1D13C121C041F6E008F72E2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F1D13C141C041F74008F72E2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F1D13C161C042657008F72E2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F1D13C191C04266A008F72E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F1D13C1B1C042672008F72E2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F1D13C2A1C04370B008F72E2 /* argame00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = argame00.jpg; path = helloarvideo/assets/argame00.jpg; sourceTree = "<group>"; };
+		F1D13C2B1C04370B008F72E2 /* idback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = idback.jpg; path = helloarvideo/assets/idback.jpg; sourceTree = "<group>"; };
+		F1D13C2C1C04370B008F72E2 /* namecard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = namecard.jpg; path = helloarvideo/assets/namecard.jpg; sourceTree = "<group>"; };
+		F1D13C2D1C04370B008F72E2 /* targets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = targets.json; path = helloarvideo/assets/targets.json; sourceTree = "<group>"; };
+		F1D13C2E1C04370B008F72E2 /* transparentvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = transparentvideo.mp4; path = helloarvideo/assets/transparentvideo.mp4; sourceTree = "<group>"; };
+		F1D13C2F1C04370B008F72E2 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = helloarvideo/assets/video.mp4; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1D13BA41C040394008F72E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CFCD6EA1D91799800C07C39 /* easyar.framework in Frameworks */,
+				6CFCD6E81D91797700C07C39 /* easyar.framework in Frameworks */,
+				6C14EE4B1D902C0C0046CD01 /* SceneKit.framework in Frameworks */,
+				F1D13C1C1C042672008F72E2 /* AVFoundation.framework in Frameworks */,
+				F1D13C1A1C04266A008F72E2 /* CoreGraphics.framework in Frameworks */,
+				F1D13C181C04265F008F72E2 /* CoreImage.framework in Frameworks */,
+				F1D13C171C042657008F72E2 /* CoreMedia.framework in Frameworks */,
+				F1D13C131C041F6E008F72E2 /* CoreVideo.framework in Frameworks */,
+				F1D13C111C041F63008F72E2 /* OpenGLES.framework in Frameworks */,
+				F1D13C0F1C041F5E008F72E2 /* QuartzCore.framework in Frameworks */,
+				F1D13C0D1C041F55008F72E2 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CFCD6E61D91797600C07C39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CFCD6E71D91797700C07C39 /* easyar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1D13B9E1C040394008F72E2 = {
+			isa = PBXGroup;
+			children = (
+				6CFCD6E91D91799800C07C39 /* easyar.framework */,
+				6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */,
+				F1D13C1B1C042672008F72E2 /* AVFoundation.framework */,
+				F1D13C191C04266A008F72E2 /* CoreGraphics.framework */,
+				F1D13C161C042657008F72E2 /* CoreMedia.framework */,
+				F1D13C141C041F74008F72E2 /* CoreImage.framework */,
+				F1D13C121C041F6E008F72E2 /* CoreVideo.framework */,
+				F1D13C101C041F63008F72E2 /* OpenGLES.framework */,
+				F1D13C0E1C041F5E008F72E2 /* QuartzCore.framework */,
+				F1D13C0C1C041F55008F72E2 /* UIKit.framework */,
+				F1D13BA91C040394008F72E2 /* helloarvideo */,
+				F1D13BA81C040394008F72E2 /* Products */,
+				6CFCD6E61D91797600C07C39 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F1D13BA81C040394008F72E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1D13BA71C040394008F72E2 /* helloarvideo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1D13BA91C040394008F72E2 /* helloarvideo */ = {
+			isa = PBXGroup;
+			children = (
+				F1D13C361C043716008F72E2 /* assets */,
+				F1D13BD21C040841008F72E2 /* AppDelegate.h */,
+				F1D13BD31C040841008F72E2 /* AppDelegate.mm */,
+				F1D13BD41C040841008F72E2 /* ar.cc */,
+				F1D13BD51C040841008F72E2 /* ar.hpp */,
+				F1D13BD71C040841008F72E2 /* OpenGLView.h */,
+				F1D13BD81C040841008F72E2 /* OpenGLView.mm */,
+				F1D13BD91C040841008F72E2 /* renderer.cc */,
+				F1D13BDA1C040841008F72E2 /* renderer.hpp */,
+				F1D13BDB1C040841008F72E2 /* ViewController.h */,
+				F1D13BDC1C040841008F72E2 /* ViewController.m */,
+				F1D13BB31C040395008F72E2 /* Main.storyboard */,
+				F1A7AA2D1C06CACF0060ADF6 /* LaunchScreen.xib */,
+				F1D13BB61C040395008F72E2 /* Assets.xcassets */,
+				F1D13BBB1C040395008F72E2 /* Info.plist */,
+				F1D13BAA1C040394008F72E2 /* Supporting Files */,
+			);
+			path = helloarvideo;
+			sourceTree = "<group>";
+		};
+		F1D13BAA1C040394008F72E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1D13BAB1C040394008F72E2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1D13C361C043716008F72E2 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				F1D13C2A1C04370B008F72E2 /* argame00.jpg */,
+				F1D13C2B1C04370B008F72E2 /* idback.jpg */,
+				F1D13C2C1C04370B008F72E2 /* namecard.jpg */,
+				F1D13C2D1C04370B008F72E2 /* targets.json */,
+				F1D13C2E1C04370B008F72E2 /* transparentvideo.mp4 */,
+				F1D13C2F1C04370B008F72E2 /* video.mp4 */,
+			);
+			name = assets;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1D13BA61C040394008F72E2 /* helloarvideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1D13BBE1C040395008F72E2 /* Build configuration list for PBXNativeTarget "helloarvideo" */;
+			buildPhases = (
+				F1D13BA31C040394008F72E2 /* Sources */,
+				F1D13BA41C040394008F72E2 /* Frameworks */,
+				F1D13BA51C040394008F72E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = helloarvideo;
+			productName = helloarvideo;
+			productReference = F1D13BA71C040394008F72E2 /* helloarvideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1D13B9F1C040394008F72E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "VisionStar Information Technology (Shanghai) Co., Ltd";
+				TargetAttributes = {
+					F1D13BA61C040394008F72E2 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = T59W99K34W;
+					};
+				};
+			};
+			buildConfigurationList = F1D13BA21C040394008F72E2 /* Build configuration list for PBXProject "helloarvideo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1D13B9E1C040394008F72E2;
+			productRefGroup = F1D13BA81C040394008F72E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1D13BA61C040394008F72E2 /* helloarvideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1D13BA51C040394008F72E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1D13C301C04370B008F72E2 /* argame00.jpg in Resources */,
+				F1D13BB71C040395008F72E2 /* Assets.xcassets in Resources */,
+				F1D13BB51C040395008F72E2 /* Main.storyboard in Resources */,
+				F1D13C351C04370B008F72E2 /* video.mp4 in Resources */,
+				F1D13C341C04370B008F72E2 /* transparentvideo.mp4 in Resources */,
+				F1D13C321C04370B008F72E2 /* namecard.jpg in Resources */,
+				F1D13C331C04370B008F72E2 /* targets.json in Resources */,
+				F1A7AA2F1C06CACF0060ADF6 /* LaunchScreen.xib in Resources */,
+				F1D13C311C04370B008F72E2 /* idback.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1D13BA31C040394008F72E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1D13BE21C040841008F72E2 /* ViewController.m in Sources */,
+				F1D13BDE1C040841008F72E2 /* ar.cc in Sources */,
+				F1D13BDD1C040841008F72E2 /* AppDelegate.mm in Sources */,
+				F1D13BE11C040841008F72E2 /* renderer.cc in Sources */,
+				F1D13BE01C040841008F72E2 /* OpenGLView.mm in Sources */,
+				F1D13BAC1C040394008F72E2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F1A7AA2D1C06CACF0060ADF6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1A7AA2E1C06CACF0060ADF6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		F1D13BB31C040395008F72E2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1D13BB41C040395008F72E2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1D13BBC1C040395008F72E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1D13BBD1C040395008F72E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1D13BBF1C040395008F72E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../package/iOS,
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = helloarvideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.easyar.samples.helloarvideo000;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F1D13BC01C040395008F72E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../package/iOS,
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = helloarvideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.easyar.samples.helloarvideo000;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1D13BA21C040394008F72E2 /* Build configuration list for PBXProject "helloarvideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1D13BBC1C040395008F72E2 /* Debug */,
+				F1D13BBD1C040395008F72E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1D13BBE1C040395008F72E2 /* Build configuration list for PBXNativeTarget "helloarvideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1D13BBF1C040395008F72E2 /* Debug */,
+				F1D13BC01C040395008F72E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1D13B9F1C040394008F72E2 /* Project object */;
+}
