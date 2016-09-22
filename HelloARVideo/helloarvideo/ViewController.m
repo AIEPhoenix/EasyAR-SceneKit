@@ -37,7 +37,8 @@
     
     NSLog(@"cameraview4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24,c.m31,c.m32,c.m33,c.m34,c.m41,c.m42,c.m43,c.m44);
     self.sunNode.transform = c;
-    self.cameraNode.position = SCNVector3Make(0,0,-c.m43 * 3);
+    
+    self.cameraNode.position = SCNVector3Make(c.m41 * 2,c.m42 * 2,(-c.m43 + 5)*2);
 }
 -(void)initScene{
     
@@ -51,8 +52,8 @@
     [scene.rootNode addChildNode:cameraNode];
     
     // place the camera
-    cameraNode.position = SCNVector3Make(0,0,20);
-    cameraNode.camera.zFar = 100;
+    cameraNode.position = SCNVector3Make(0,0,50);
+    cameraNode.camera.zFar = 200;
     cameraNode.rotation =  SCNVector4Make(0, 0, 1,-M_PI_2);
     
     // retrieve the ship node
@@ -98,7 +99,7 @@
     [_earthGroupNode addChildNode:_earthNode];
     
     _earthGroupNode.position = SCNVector3Make(10, 0, 0);
-    
+    _sunNode.position = SCNVector3Make(0, 0, 0);
     [_scnView.scene.rootNode addChildNode:_sunNode];
     
     
@@ -127,7 +128,7 @@
     _moonNode.geometry.firstMaterial.specular.contents = [UIColor grayColor];
     
     
-//    [self roationNode];
+    [self roationNode];
     [self addOtherNode];
     [self addLight];
     
@@ -204,6 +205,9 @@
     [_sunNode.geometry.firstMaterial.multiply addAnimation:animation forKey:@"sun-texture2"];
     
 }
+
+
+
 -(void)mathRoation{
     
     // 相关数学知识点： 任意点a(x,y)，绕一个坐标点b(rx0,ry0)逆时针旋转a角度后的新的坐标设为c(x0, y0)，有公式：
@@ -245,6 +249,7 @@
     
     [_earthGroupNode runAction:repeatAction];
 }
+
 -(void)addLight{
     
     // We will turn off all the lights in the scene and add a new light
