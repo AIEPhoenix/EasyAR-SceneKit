@@ -8,8 +8,11 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet SCNView *scnView;
-@property(strong,nonatomic)SCNNode *sunNode,*earthNode,*moonNode,*earthGroupNode,*sunHaloNode;
+@property(strong,nonatomic)SCNNode *sunNode,*earthNode,*moonNode,*earthGroupNode,*sunHaloNode,*cameraNode;
 @property(nonatomic)int type;
+@property (assign, nonatomic) SCNMatrix4 projection4Matrix;
+@property (assign, nonatomic) SCNMatrix4 cameraview4Matrix;
+
 @end
 
 @implementation ViewController
@@ -21,15 +24,20 @@
     [self.glView setOrientation:self.interfaceOrientation];
     
     [self initScene];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(printMatrix) userInfo:nil repeats:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(changeProjection4Matrix) userInfo:nil repeats:YES];
+    });
+    
     
 }
-- (void)printMatrix {
+-(void)changeProjection4Matrix {
     SCNMatrix4 p = self.glView.projection4Matrix;
     SCNMatrix4 c = self.glView.cameraview4Matrix;
     
-    //NSLog(@"projection4Matrix--%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24);
-    NSLog(@"projection4Matrix--%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24);
+    NSLog(@"cameraview4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24,c.m31,c.m32,c.m33,c.m34,c.m41,c.m42,c.m43,c.m44);
+    self.sunNode.transform = c;
+    self.cameraNode.position = SCNVector3Make(0,0,-c.m43 * 3);
 }
 -(void)initScene{
     
@@ -38,13 +46,14 @@
     
     // create and add a camera to the scene
     SCNNode *cameraNode = [SCNNode node];
+    self.cameraNode = cameraNode;
     cameraNode.camera = [SCNCamera camera];
     [scene.rootNode addChildNode:cameraNode];
     
     // place the camera
-    cameraNode.position = SCNVector3Make(0,3,18);
+    cameraNode.position = SCNVector3Make(0,0,20);
     cameraNode.camera.zFar = 100;
-    cameraNode.rotation =  SCNVector4Make(1, 0, 0,-M_PI_4/4);
+    cameraNode.rotation =  SCNVector4Make(0, 0, 1,-M_PI_2);
     
     // retrieve the ship node
     SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
@@ -54,7 +63,7 @@
     _scnView.scene = scene;
     
     // allows the user to manipulate the camera
-    _scnView.allowsCameraControl = YES;
+//    _scnView.allowsCameraControl = YES;
     
     // show statistics such as fps and timing information
     _scnView.showsStatistics = YES;
@@ -118,18 +127,18 @@
     _moonNode.geometry.firstMaterial.specular.contents = [UIColor grayColor];
     
     
-    [self roationNode];
+//    [self roationNode];
     [self addOtherNode];
     [self addLight];
     
 }
 -(void)roationNode{
     
-    [_earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:1]]];   //地球自转
+    [_earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:2]]];   //地球自转
     
     // Rotate the moon
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"rotation"];        //月球自转
-    animation.duration = 1.5;
+    animation.duration = 2;
     animation.toValue = [NSValue valueWithSCNVector4:SCNVector4Make(0, 1, 0, M_PI * 2)];
     animation.repeatCount = FLT_MAX;
     [_moonNode addAnimation:animation forKey:@"moon rotation"];
