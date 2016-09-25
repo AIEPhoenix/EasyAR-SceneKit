@@ -13,6 +13,8 @@
 @property (assign, nonatomic) SCNMatrix4 projection4Matrix;
 @property (assign, nonatomic) SCNMatrix4 cameraview4Matrix;
 
+
+@property(strong,nonatomic)SCNNode *boxNode;
 @end
 
 @implementation ViewController
@@ -23,7 +25,8 @@
     [self.view insertSubview:self.glView belowSubview:self.scnView];
     [self.glView setOrientation:self.interfaceOrientation];
     
-    [self initScene];
+//    [self initScene];
+    [self setupCube];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(changeProjection4Matrix) userInfo:nil repeats:YES];
@@ -36,10 +39,40 @@
     SCNMatrix4 c = self.glView.cameraview4Matrix;
     
     NSLog(@"cameraview4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24,c.m31,c.m32,c.m33,c.m34,c.m41,c.m42,c.m43,c.m44);
-    self.sunNode.transform = c;
+//    NSLog(@"projection4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24,p.m31,p.m32,p.m33,p.m34,p.m41,p.m42,p.m43,p.m44);
     
-    self.cameraNode.position = SCNVector3Make(c.m41 * 2,c.m42 * 2,(-c.m43 + 5)*2);
+    self.boxNode.transform = c;
+
+//    self.boxNode.transform = [self.boxNode convertTransform:c toNode:self.boxNode];
+
 }
+- (void)setupCube {
+    // 实例化一个空的SCNScene类，接下来要用它做更多的事
+    SCNScene *scene = [[SCNScene alloc] init];
+    // 定义一个SCNBox类的几何实例然后创建盒子，并将其作为根节点的子节点，根节点就是scene
+    SCNBox *boxGeometry = [SCNBox boxWithWidth:10.0 height:10.0 length:10.0 chamferRadius:1.0];
+    SCNNode *boxNode = [SCNNode nodeWithGeometry:boxGeometry];
+    self.boxNode = boxNode;
+    [scene.rootNode addChildNode:boxNode];
+    // 将场景放进sceneView中显示
+    self.scnView.scene = scene;
+    //添加灯泡效果
+    self.scnView.autoenablesDefaultLighting = YES;
+    
+    //添加环境光，灰绿光
+    SCNNode *ambientLightNode = [[SCNNode alloc] init];
+    ambientLightNode.light = [[SCNLight alloc] init];
+    ambientLightNode.light.type = SCNLightTypeAmbient;
+    ambientLightNode.light.color = [UIColor colorWithRed:0.1 green:0.2 blue:0.1 alpha:1];
+    [scene.rootNode addChildNode:ambientLightNode];
+//    //修改摄像机位置
+    SCNNode *cameraNode = [[SCNNode alloc] init];
+    cameraNode.camera = [[SCNCamera alloc] init];
+    cameraNode.position = SCNVector3Make(0, 0, 50);
+    [scene.rootNode addChildNode:cameraNode];
+    cameraNode.rotation =  SCNVector4Make(0, 0, 1,-M_PI_2);
+}
+
 -(void)initScene{
     
     // create a new scene

@@ -153,6 +153,7 @@ void HelloARVideo::render()
         cameraview4Matrix = cameraview;
         projection4Matrix = projectionMatrix;
         /***********/
+       
         
         ImageTarget target = frame.targets()[0].target().cast_dynamic<ImageTarget>();
         if(tracked_target) {
@@ -182,6 +183,9 @@ bool HelloARVideo::clear()
 }
 }
 EasyAR::samples::HelloARVideo ar;
+
+/////////////////////
+
 
 @interface OpenGLView ()
 {
@@ -270,8 +274,8 @@ EasyAR::samples::HelloARVideo ar;
     m.m33 = ar.cameraview4Matrix.data[10];
     m.m34 = ar.cameraview4Matrix.data[11];
     
-    m.m41 = ar.cameraview4Matrix.data[12];
-    m.m42 = ar.cameraview4Matrix.data[13];
+    m.m41 = -ar.cameraview4Matrix.data[12];
+    m.m42 = -ar.cameraview4Matrix.data[13];
     m.m43 = ar.cameraview4Matrix.data[14];
     m.m44 = ar.cameraview4Matrix.data[15];
     self.cameraview4Matrix = m;
@@ -297,6 +301,8 @@ EasyAR::samples::HelloARVideo ar;
     m.m43 = ar.projection4Matrix.data[14];
     m.m44 = ar.projection4Matrix.data[15];
     self.projection4Matrix = n;
+    
+    
 }
 /***********/
 
