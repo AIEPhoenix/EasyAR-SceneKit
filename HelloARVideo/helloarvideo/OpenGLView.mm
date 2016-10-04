@@ -135,9 +135,9 @@ void HelloARVideo::render()
                     video_renderer = renderer[1];
                 }
                 else if(frame.targets()[0].target().name() == std::string("idback") && texid[2]) {
-                    video = new ARVideo;
-                    video->openStreamingVideo("http://7xl1ve.com5.z0.glb.clouddn.com/sdkvideo/EasyARSDKShow201520.mp4", texid[2]);
-                    video_renderer = renderer[2];
+//                    video = new ARVideo;
+//                    video->openStreamingVideo("http://7xl1ve.com5.z0.glb.clouddn.com/sdkvideo/EasyARSDKShow201520.mp4", texid[2]);
+//                    video_renderer = renderer[2];
                 }
             }
             if (video) {
