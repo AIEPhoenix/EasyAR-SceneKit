@@ -56,7 +56,7 @@
  矩阵变换操作
  */
 -(void)changeProjection4Matrix {
-    
+    //如果识别出图片,且需要显示星球模型,则显示
     if (self.glView.isTracked && self.glView.shouldShowStar) {
         self.sunNode.hidden = NO;
     }else {
@@ -69,7 +69,6 @@
     NSLog(@"cameraview4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24,c.m31,c.m32,c.m33,c.m34,c.m41,c.m42,c.m43,c.m44);
 //    NSLog(@"projection4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24,p.m31,p.m32,p.m33,p.m34,p.m41,p.m42,p.m43,p.m44);
 
-    
     self.sunNode.transform = c;
 }
 
@@ -257,7 +256,7 @@
     _sunHaloNode.geometry.firstMaterial.lightingModelName = SCNLightingModelConstant; // no lighting
     _sunHaloNode.geometry.firstMaterial.writesToDepthBuffer = NO; // do not write to depth
     _sunHaloNode.opacity = 0.2;
-    //添加到太阳节点上
+    //添加到太阳节点上(暂时放弃)
 //    [_sunNode addChildNode:_sunHaloNode];
     
     

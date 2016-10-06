@@ -38,8 +38,8 @@ public:
     /***********/
     Matrix44F cameraview4Matrix;
     Matrix44F projection4Matrix;
-    bool isTracked;
-    bool shouldShowStar;
+    bool isTracked;//是否识别出图片
+    bool shouldShowStar;//是否要显示星球模型
     /***********/
     
 private:
@@ -126,6 +126,7 @@ void HelloARVideo::render()
         }
         /****************/
         isTracked = true;
+        /****************/
         if (!tracked_target) {
             if (video == NULL) {
                 
@@ -133,17 +134,24 @@ void HelloARVideo::render()
                     video = new ARVideo;
                     video->openVideoFile("video.mp4", texid[0]);
                     video_renderer = renderer[0];
+                    /****************/
                     shouldShowStar = false;
+                    /****************/
                 }
                 else if(frame.targets()[0].target().name() == std::string("namecard") && texid[1]) {
                     video = new ARVideo;
                     video->openTransparentVideoFile("transparentvideo.mp4", texid[1]);
                     video_renderer = renderer[1];
+                    /****************/
                     shouldShowStar = false;
+                    /****************/
                 }
                 else if(frame.targets()[0].target().name() == std::string("idback") && texid[2]) {
+                    /****************/
                     shouldShowStar = true;
+                    /****************/
                 }
+                /****************/
                 else if(frame.targets()[0].target().name() == std::string("z1")||frame.targets()[0].target().name() == std::string("z2") || frame.targets()[0].target().name() == std::string("z3") || frame.targets()[0].target().name() == std::string("z4")) {
                     shouldShowStar = true;
                 }
@@ -153,7 +161,7 @@ void HelloARVideo::render()
                     video_renderer = renderer[2];
                     shouldShowStar = false;
                 }
-
+                /****************/
             }
             if (video) {
                 video->onFound();
@@ -182,6 +190,7 @@ void HelloARVideo::render()
         }
         /****************/
         isTracked = false;
+        /****************/
     }
 }
 
