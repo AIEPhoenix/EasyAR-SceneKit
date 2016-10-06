@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		6C14EE4B1D902C0C0046CD01 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */; };
+		6C4259821DA6157F009B52F9 /* z2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259801DA6157F009B52F9 /* z2.jpg */; };
+		6C4259831DA6157F009B52F9 /* z3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259811DA6157F009B52F9 /* z3.jpg */; };
+		6C4259851DA61587009B52F9 /* z1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259841DA61587009B52F9 /* z1.jpg */; };
+		6C4259891DA61598009B52F9 /* y1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259861DA61598009B52F9 /* y1.jpg */; };
+		6C42598A1DA61598009B52F9 /* z4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259871DA61598009B52F9 /* z4.jpg */; };
+		6C42598B1DA61598009B52F9 /* y2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4259881DA61598009B52F9 /* y2.jpg */; };
 		6CFCD6E81D91797700C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E71D91797700C07C39 /* easyar.framework */; };
 		6CFCD6EA1D91799800C07C39 /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFCD6E91D91799800C07C39 /* easyar.framework */; };
 		6CFFC9351D91834000F3FA35 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CFFC9341D91834000F3FA35 /* art.scnassets */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		6C14EE4A1D902C0C0046CD01 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		6C4259801DA6157F009B52F9 /* z2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = z2.jpg; sourceTree = "<group>"; };
+		6C4259811DA6157F009B52F9 /* z3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = z3.jpg; sourceTree = "<group>"; };
+		6C4259841DA61587009B52F9 /* z1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = z1.jpg; sourceTree = "<group>"; };
+		6C4259861DA61598009B52F9 /* y1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = y1.jpg; sourceTree = "<group>"; };
+		6C4259871DA61598009B52F9 /* z4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = z4.jpg; sourceTree = "<group>"; };
+		6C4259881DA61598009B52F9 /* y2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = y2.jpg; sourceTree = "<group>"; };
 		6CFCD6E71D91797700C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
 		6CFCD6E91D91799800C07C39 /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
 		6CFFC9341D91834000F3FA35 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -165,6 +177,12 @@
 		F1D13C361C043716008F72E2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6C4259841DA61587009B52F9 /* z1.jpg */,
+				6C4259801DA6157F009B52F9 /* z2.jpg */,
+				6C4259811DA6157F009B52F9 /* z3.jpg */,
+				6C4259861DA61598009B52F9 /* y1.jpg */,
+				6C4259871DA61598009B52F9 /* z4.jpg */,
+				6C4259881DA61598009B52F9 /* y2.jpg */,
 				F1D13C2A1C04370B008F72E2 /* argame00.jpg */,
 				F1D13C2B1C04370B008F72E2 /* idback.jpg */,
 				F1D13C2C1C04370B008F72E2 /* namecard.jpg */,
@@ -234,12 +252,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C42598B1DA61598009B52F9 /* y2.jpg in Resources */,
+				6C4259851DA61587009B52F9 /* z1.jpg in Resources */,
 				F1D13C301C04370B008F72E2 /* argame00.jpg in Resources */,
+				6C4259821DA6157F009B52F9 /* z2.jpg in Resources */,
+				6C4259891DA61598009B52F9 /* y1.jpg in Resources */,
+				6C4259831DA6157F009B52F9 /* z3.jpg in Resources */,
 				F1D13BB71C040395008F72E2 /* Assets.xcassets in Resources */,
 				F1D13BB51C040395008F72E2 /* Main.storyboard in Resources */,
 				F1D13C351C04370B008F72E2 /* video.mp4 in Resources */,
 				F1D13C341C04370B008F72E2 /* transparentvideo.mp4 in Resources */,
 				F1D13C321C04370B008F72E2 /* namecard.jpg in Resources */,
+				6C42598A1DA61598009B52F9 /* z4.jpg in Resources */,
 				F1D13C331C04370B008F72E2 /* targets.json in Resources */,
 				6CFFC9351D91834000F3FA35 /* art.scnassets in Resources */,
 				F1A7AA2F1C06CACF0060ADF6 /* LaunchScreen.xib in Resources */,
