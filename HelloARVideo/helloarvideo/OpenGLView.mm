@@ -139,6 +139,9 @@ void HelloARVideo::render()
 //                    video->openStreamingVideo("http://7xl1ve.com5.z0.glb.clouddn.com/sdkvideo/EasyARSDKShow201520.mp4", texid[2]);
 //                    video_renderer = renderer[2];
                 }
+                else if(frame.targets()[0].target().name() == std::string("z1")||frame.targets()[0].target().name() == std::string("z2") || frame.targets()[0].target().name() == std::string("z3") || frame.targets()[0].target().name() == std::string("z4")) {
+                    
+                }
             }
             if (video) {
                 video->onFound();
