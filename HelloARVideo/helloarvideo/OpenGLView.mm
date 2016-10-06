@@ -281,7 +281,7 @@ EasyAR::samples::HelloARVideo ar;
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
 }
 
-/***********/
+/***********/ //矩阵转换的"胶水代码"
 - (void)getMatrix {
     
     SCNMatrix4 m = SCNMatrix4Identity;
