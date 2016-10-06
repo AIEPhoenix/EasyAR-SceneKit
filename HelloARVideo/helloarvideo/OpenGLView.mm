@@ -38,6 +38,8 @@ public:
     /***********/
     Matrix44F cameraview4Matrix;
     Matrix44F projection4Matrix;
+    bool isTracked;
+    bool shouldShowStar;
     /***********/
     
 private:
@@ -122,26 +124,36 @@ void HelloARVideo::render()
             tracked_target = 0;
             active_target = 0;
         }
+        /****************/
+        isTracked = true;
         if (!tracked_target) {
             if (video == NULL) {
+                
                 if(frame.targets()[0].target().name() == std::string("argame") && texid[0]) {
                     video = new ARVideo;
                     video->openVideoFile("video.mp4", texid[0]);
                     video_renderer = renderer[0];
+                    shouldShowStar = false;
                 }
                 else if(frame.targets()[0].target().name() == std::string("namecard") && texid[1]) {
                     video = new ARVideo;
                     video->openTransparentVideoFile("transparentvideo.mp4", texid[1]);
                     video_renderer = renderer[1];
+                    shouldShowStar = false;
                 }
                 else if(frame.targets()[0].target().name() == std::string("idback") && texid[2]) {
-//                    video = new ARVideo;
-//                    video->openStreamingVideo("http://7xl1ve.com5.z0.glb.clouddn.com/sdkvideo/EasyARSDKShow201520.mp4", texid[2]);
-//                    video_renderer = renderer[2];
+                    shouldShowStar = true;
                 }
                 else if(frame.targets()[0].target().name() == std::string("z1")||frame.targets()[0].target().name() == std::string("z2") || frame.targets()[0].target().name() == std::string("z3") || frame.targets()[0].target().name() == std::string("z4")) {
-                    
+                    shouldShowStar = true;
                 }
+                else if((frame.targets()[0].target().name() == std::string("y1") || frame.targets()[0].target().name() == std::string("y2")) && texid[2]) {
+                    video = new ARVideo;
+                    video->openStreamingVideo("http://www.w3school.com.cn/example/html5/mov_bbb.mp4", texid[2]);
+                    video_renderer = renderer[2];
+                    shouldShowStar = false;
+                }
+
             }
             if (video) {
                 video->onFound();
@@ -168,6 +180,8 @@ void HelloARVideo::render()
             video->onLost();
             tracked_target = 0;
         }
+        /****************/
+        isTracked = false;
     }
 }
 
@@ -332,6 +346,8 @@ EasyAR::samples::HelloARVideo ar;
     
     /***********/
     [self getMatrix];
+    self.isTracked = ar.isTracked;
+    self.shouldShowStar = ar.shouldShowStar;
     /***********/
     
     (void)displayLink;

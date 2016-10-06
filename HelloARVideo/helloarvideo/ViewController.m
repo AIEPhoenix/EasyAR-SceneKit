@@ -25,7 +25,8 @@
     [self.glView setOrientation:self.interfaceOrientation];
     
     [self initScene];
-
+    self.sunNode.hidden = YES;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(changeProjection4Matrix)];
         [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -55,6 +56,13 @@
  矩阵变换操作
  */
 -(void)changeProjection4Matrix {
+    
+    if (self.glView.isTracked && self.glView.shouldShowStar) {
+        self.sunNode.hidden = NO;
+    }else {
+        self.sunNode.hidden = YES;
+    }
+
     SCNMatrix4 p = self.glView.projection4Matrix;
     SCNMatrix4 c = self.glView.cameraview4Matrix;
     

@@ -18,8 +18,10 @@
 @property(nonatomic, strong) CAEAGLLayer * eaglLayer;
 @property(nonatomic, strong) EAGLContext *context;
 @property(nonatomic) GLuint colorRenderBuffer;
-
 /***********/
+@property(nonatomic,assign) BOOL shouldShowStar;
+@property(nonatomic,assign) BOOL isTracked;
+
 @property(nonatomic) SCNMatrix4 cameraview4Matrix;
 @property(nonatomic) SCNMatrix4 projection4Matrix;
 /***********/
