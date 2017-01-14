@@ -6,7 +6,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<SCNSceneRendererDelegate>
 @property (weak, nonatomic) IBOutlet SCNView *scnView;
 @property(strong,nonatomic)SCNNode *sunNode,*earthNode,*moonNode,*earthGroupNode,*sunHaloNode,*cameraNode,*earthRotationNode;
 @property(nonatomic)int type;
@@ -24,14 +24,15 @@
     [self.view insertSubview:self.glView belowSubview:self.scnView];
     [self.glView setOrientation:self.interfaceOrientation];
     
+    
     [self initScene];
     self.sunNode.hidden = YES;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(changeProjection4Matrix)];
-        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(changeProjection4Matrix)];
+//        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+//
+//    });
     
     
 }
@@ -70,6 +71,7 @@
     //NSLog(@"projection4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24,p.m31,p.m32,p.m33,p.m34,p.m41,p.m42,p.m43,p.m44);
 
     self.sunNode.transform = c;
+    //_scnView.scene.rootNode.transform = c;
 }
 
 /**
@@ -127,14 +129,13 @@
     // 放置camera
     cameraNode.position = SCNVector3Make(0,0,0);
     cameraNode.camera.zFar = 300;
-    cameraNode.rotation =  SCNVector4Make(0, 0, 1,- M_PI_2);
+    cameraNode.rotation =  SCNVector4Make(0, 0, 1, -M_PI_2);
         
     // 设置scene到scnView
     _scnView.scene = scene;
-    
+    _scnView.delegate = self;
     // 显示统计信息如fps和时间
     _scnView.showsStatistics = YES;
-    
     // scnView背景色透明
     _scnView.backgroundColor = [UIColor clearColor];
     
@@ -166,7 +167,7 @@
     //地球节点添加到群,设置位置
     [_earthGroupNode addChildNode:_earthNode];
     _earthGroupNode.position = SCNVector3Make(10, 0, 0);
-    
+    _earthGroupNode.rotation =  SCNVector4Make(0, 0, 1, -M_PI);
     //太阳节点位置
     _sunNode.position = SCNVector3Make(0, 0, 0);
    
@@ -224,7 +225,6 @@
     [SCNTransaction begin];
     [SCNTransaction setAnimationDuration:1];
     {
-        
         lightNode.light.color = [UIColor whiteColor]; // switch on
         //[presentationViewController updateLightingWithIntensities:@[@0.0]]; //switch off all the other lights
         _sunHaloNode.opacity = 0.5; // make the halo stronger
@@ -280,50 +280,30 @@
     [_earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:2]]];   //地球自转
     
     // Rotate the moon
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"rotation"];        //月球自转
-    animation.duration = 2;
-    animation.toValue = [NSValue valueWithSCNVector4:SCNVector4Make(0, 1, 0, M_PI * 2)];
-    animation.repeatCount = FLT_MAX;
-    [_moonNode addAnimation:animation forKey:@"moon rotation"];
+    [_moonNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:2]]];
     
-    
-    // 月球旋转节点
+    // 月球旋转节点,用来让月球绕地球转
     SCNNode *moonRotationNode = [SCNNode node];
     [moonRotationNode addChildNode:_moonNode];
-    
-    // 让月球绕地球旋转
-    CABasicAnimation *moonRotationAnimation = [CABasicAnimation animationWithKeyPath:@"rotation"];
-    moonRotationAnimation.duration = 5.0;
-    moonRotationAnimation.toValue = [NSValue valueWithSCNVector4:SCNVector4Make(0, 1, 0, M_PI * 2)];
-    moonRotationAnimation.repeatCount = FLT_MAX;
-    [moonRotationNode addAnimation:animation forKey:@"moon rotation around earth"];
-    
+    //[moonRotationNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:2]]];
     //添加到地球节点组
     [_earthGroupNode addChildNode:moonRotationNode];
     
     //默认使用正常旋转模式
     if(_type==0){    //  normal Roation
-        
         // 地球旋转节点
         SCNNode *earthRotationNode = [SCNNode node];
         self.earthRotationNode = earthRotationNode;
         //添加到太阳上
         [_sunNode addChildNode:earthRotationNode];
         
-        // 将地球群组添加到地球旋转节点上
+        // 将地球群组添加到地球旋转节点上,让地球绕太阳旋转
         [earthRotationNode addChildNode:_earthGroupNode];
-        
-        // 让地球绕太阳旋转
-        animation = [CABasicAnimation animationWithKeyPath:@"rotation"];
-        animation.duration = 10.0;
-        animation.toValue = [NSValue valueWithSCNVector4:SCNVector4Make(0, 1, 0, M_PI * 2)];
-        animation.repeatCount = FLT_MAX;
-        [earthRotationNode addAnimation:animation forKey:@"earth rotation around sun"];
+        //[earthRotationNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:2 z:0 duration:10.0]]];
         
     }
     //或者可改为数学计算旋转
     else{   // math roation
-        
         [_sunNode addChildNode:_earthGroupNode];
         [self mathRoation];
     }
@@ -353,46 +333,37 @@
 
 //数学公式旋转,暂时无用,仅供学习
 -(void)mathRoation{
-    
     // 相关数学知识点： 任意点a(x,y)，绕一个坐标点b(rx0,ry0)逆时针旋转a角度后的新的坐标设为c(x0, y0)，有公式：
-    
     //    x0= (x - rx0)*cos(a) - (y - ry0)*sin(a) + rx0 ;
-    //
     //    y0= (x - rx0)*sin(a) + (y - ry0)*cos(a) + ry0 ;
     
     // custom Action
     float totalDuration = 10.0f;        //10s 围绕地球转一圈
     float duration = totalDuration/360;  //每隔duration秒去执行一次
     
-    
     SCNAction *customAction = [SCNAction customActionWithDuration:duration actionBlock:^(SCNNode * _Nonnull node, CGFloat elapsedTime){
-        
-        
         if(elapsedTime==duration){
-            
-            
             SCNVector3 position = node.position;
             
             float rx0 = 0;    //原点为0
             float ry0 = 0;
             
             float angle = 1.0f/180*M_PI;
-            
             float x =  (position.x - rx0)*cos(angle) - (position.z - ry0)*sin(angle) + rx0 ;
-            
             float z = (position.x - rx0)*sin(angle) + (position.z - ry0)*cos(angle) + ry0 ;
             
             node.position = SCNVector3Make(x, node.position.y, z);
-            
         }
-        
     }];
     
     SCNAction *repeatAction = [SCNAction repeatActionForever:customAction];
     
     [_earthGroupNode runAction:repeatAction];
 }
-
+#pragma mark 
+- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    [self changeProjection4Matrix];
+}
 #pragma mark 界面旋转横屏
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     [self.glView setOrientation:toInterfaceOrientation];
