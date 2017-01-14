@@ -307,25 +307,25 @@ EasyAR::samples::HelloARVideo ar;
     self.cameraview4Matrix = m;
     
     SCNMatrix4 n = SCNMatrix4Identity;
-    m.m11 = ar.projection4Matrix.data[0];
-    m.m12 = ar.projection4Matrix.data[1];
-    m.m13 = ar.projection4Matrix.data[2];
-    m.m14 = ar.projection4Matrix.data[3];
+    n.m11 = ar.projection4Matrix.data[0];
+    n.m12 = ar.projection4Matrix.data[1];
+    n.m13 = ar.projection4Matrix.data[2];
+    n.m14 = ar.projection4Matrix.data[3];
     
-    m.m21 = ar.projection4Matrix.data[4];
-    m.m22 = ar.projection4Matrix.data[5];
-    m.m23 = ar.projection4Matrix.data[6];
-    m.m24 = ar.projection4Matrix.data[7];
+    n.m21 = ar.projection4Matrix.data[4];
+    n.m22 = ar.projection4Matrix.data[5];
+    n.m23 = ar.projection4Matrix.data[6];
+    n.m24 = ar.projection4Matrix.data[7];
     
-    m.m31 = ar.projection4Matrix.data[8];
-    m.m32 = ar.projection4Matrix.data[9];
-    m.m33 = ar.projection4Matrix.data[10];
-    m.m34 = ar.projection4Matrix.data[11];
+    n.m31 = ar.projection4Matrix.data[8];
+    n.m32 = ar.projection4Matrix.data[9];
+    n.m33 = ar.projection4Matrix.data[10];
+    n.m34 = ar.projection4Matrix.data[11];
     
-    m.m41 = ar.projection4Matrix.data[12];
-    m.m42 = ar.projection4Matrix.data[13];
-    m.m43 = ar.projection4Matrix.data[14];
-    m.m44 = ar.projection4Matrix.data[15];
+    n.m41 = ar.projection4Matrix.data[12];
+    n.m42 = ar.projection4Matrix.data[13];
+    n.m43 = ar.projection4Matrix.data[14];
+    n.m44 = ar.projection4Matrix.data[15];
     self.projection4Matrix = n;
     
     

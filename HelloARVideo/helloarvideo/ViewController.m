@@ -67,7 +67,7 @@
     SCNMatrix4 c = self.glView.cameraview4Matrix;
     
     NSLog(@"cameraview4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",c.m11,c.m12,c.m13,c.m14,c.m21,c.m22,c.m23,c.m24,c.m31,c.m32,c.m33,c.m34,c.m41,c.m42,c.m43,c.m44);
-//    NSLog(@"projection4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24,p.m31,p.m32,p.m33,p.m34,p.m41,p.m42,p.m43,p.m44);
+    //NSLog(@"projection4Matrix--\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf,\n%lf,%lf,%lf,%lf\n",p.m11,p.m12,p.m13,p.m14,p.m21,p.m22,p.m23,p.m24,p.m31,p.m32,p.m33,p.m34,p.m41,p.m42,p.m43,p.m44);
 
     self.sunNode.transform = c;
 }
@@ -126,7 +126,7 @@
     
     // 放置camera
     cameraNode.position = SCNVector3Make(0,0,0);
-    cameraNode.camera.zFar = 200;
+    cameraNode.camera.zFar = 300;
     cameraNode.rotation =  SCNVector4Make(0, 0, 1,- M_PI_2);
         
     // 设置scene到scnView
